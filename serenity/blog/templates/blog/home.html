@@ -1,35 +1,62 @@
 {% extends "blog/base.html" %}
 {% block content %}
-
- <div class="col-lg-4  col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+    {% for post in posts %}
+     <div class="col-lg-4  col-md-6 d-flex align-items-stretch" data-aos="fade-up">
             <article class="entry">
 
               <div class="entry-img">
-                <img src="assets/img/blog-1.jpg" alt="" class="img-fluid">
+                <img src="{{ post.blog_image.url}}" alt="" class="img-fluid">
               </div>
 
               <h2 class="entry-title">
-                <a href="blog-single.html">Dolorum optio tempore voluptas dignissimos cumque fuga qui quibusdam quia</a>
+                <a href="{% url 'post-detail' post.id %}">{{ post.title }}</a>
               </h2>
 
               <div class="entry-meta">
                 <ul>
-                  <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="blog-single.html">John Doe</a></li>
-                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">Jan 1, 2020</time></a></li>
+                  <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="blog-single.html">{{ post.author }}</a></li>
+                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">{{post.date_posted |date:'F d , Y'}}</a></li>
                 </ul>
               </div>
 
               <div class="entry-content">
                 <p>
-                  Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi praesentium. Aliquam et laboriosam eius aut nostrum quidem aliquid dicta zena prista maraeda talan mas indera.
+                  {{ post.content|safe|truncatewords:50 }}
                 </p>
                 <div class="read-more">
-                  <a href="blog-single.html">Read More</a>
+                  <a href="{% url 'post-detail' post.id %}">Read More</a>
                 </div>
               </div>
 
             </article><!-- End blog entry -->
           </div>
+
+    {% endfor %}
+
+        <div class="blog-pagination" data-aos="fade-up" >
+            <ul class="justify-content-center" >
+             {% if is_paginated %}
+
+                {% if page_obj.has_previous %}
+                <li><a href="?page={{ page_obj.previous_page_number}}"><i class="icofont-rounded-left"></i></a></li>
+                {% endif %}
+
+                {% for num in page_obj.paginator.page_range %}
+                     {% if page_obj.number == num %}
+                         <li ><a href="?page= {{ num }}">{{ num }}</a></li>
+                    {% elif  num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                         <li ><a href="?page= {{ num }}">{{ num }}</a></li>
+                     {% endif %}
+
+                {% endfor%}
+
+                {% if page_obj.has_next %}
+                    <li><a href="?page={{ page_obj.next_page_number}}"><i class="icofont-rounded-right"></i></a></li>
+                {% endif %}
+              {% endif %}
+            </ul>
+        </div>
+
 
 
 

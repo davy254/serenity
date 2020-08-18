@@ -22,7 +22,7 @@
   <link href="{% static 'blog/assets/vendor/icofont/icofont.min.css' %}" rel="stylesheet">
   <link href="{% static 'blog/assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
   <link href="{% static 'blog/assets/vendor/venobox/venobox.css' %}" rel="stylesheet">
-  <link href="{static 'blog/assets/vendor/line-awesome/css/line-awesome.min.css' }" rel="stylesheet">
+  <link href="{% static 'blog/assets/vendor/line-awesome/css/line-awesome.min.css' %}" rel="stylesheet">
   <link href="{% static 'blog/assets/vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
   <link href="{% static 'blog/assets/vendor/aos/aos.css' %}" rel="stylesheet">
 
@@ -44,14 +44,14 @@
     <div class="container d-flex">
 
       <div class="logo mr-auto">
-        <h1 class="text-light"><a href="index.html">Serenity</a></h1>
+        <h1 class="text-light"><a href="{% url 'blog-home' %}">G.I.S</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="index.html"style="float:right;">Home</a></li>
+          <li><a href="{% url 'blog-home' %}">Home</a></li>
 
 
 
@@ -92,15 +92,7 @@
 
         </div>
 
-        <div class="blog-pagination" data-aos="fade-up">
-          <ul class="justify-content-center">
-            <li class="disabled"><i class="icofont-rounded-left"></i></li>
-            <li><a href="#">1</a></li>
-            <li class="active"><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#"><i class="icofont-rounded-right"></i></a></li>
-          </ul>
-        </div>
+
 
       </div>
     </section><!-- End Blog Section -->
