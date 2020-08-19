@@ -11,7 +11,9 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: #444444;
+
 }
+
 
 a {
   color: #94c045;
@@ -2232,4 +2234,10 @@ section {
   text-align: center;
   font-size: 13px;
   color: #fff;
+}
+
+@media only screen and (min-width:150px)and (max-width:600px){
+    .img-fluid{
+        width:100%;
+    }
 }
