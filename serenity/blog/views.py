@@ -5,11 +5,9 @@ from django.views.generic import (ListView,DetailView,
 
 
 # Create your views here.
-"""def home(request):
+def home(request):
+    return render(request,'blog/landing.html')
 
-    posts = Post.objects.all()
-    return render(request,'blog/home.html',{'posts':posts})
-"""
 
 
 class PostDetailView(DetailView):

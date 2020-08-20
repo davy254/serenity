@@ -46,14 +46,18 @@
       <div class="logo mr-auto">
         <h1 class="text-light"><a href="{% url 'blog-home' %}">G.I.S</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
-        <a href="index.html"><img src="{% static 'blog/assets/img/logo.png' %}" alt="" class="img-fluid"></a>
+        <a href="index.html"><img src="{% static 'blog/logo1.PNG' %}" alt="" class="img-fluid"></a>
       </div>
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="{% url 'blog-home' %}">Home</a></li>
-          <li><a href="{% url 'login' %}">Login</a></li>
-          <li><a href="{% url 'logout' %}">Logout</a></li>
+            <li><a href="{% url 'blog-home' %}">Home</a></li>
+          {% if user.is_authenticated %}
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+          {% else %}
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'register' %}">Register</a></li>
+          {% endif %}
 
 
 
@@ -70,8 +74,8 @@
       <div class="breadcrumb-hero">
         <div class="container">
           <div class="breadcrumb-hero">
-            <h2>Blog</h2>
-            <p>Est dolorum ut non facere possimus quibusdam eligendi voluptatem. Quia id aut similique quia voluptas sit quaerat debitis. Rerum omnis ipsam aperiam consequatur laboriosam nemo harum praesentium. </p>
+            <img src="{% static 'blog/logo.PNG' %}" style="width:100%;height:100px;" class="img-fluid">
+
           </div>
         </div>
       </div>
