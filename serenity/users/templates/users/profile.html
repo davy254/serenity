@@ -1,0 +1,13 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+        <div class="blog-author clearfix">
+              <img src="{{ user.profile.profile_pic.url }}" class="rounded-circle float-left" alt="">
+              <p>Userame: <h4>{{ user.username }}</h4></p>
+
+              <p>Email: <h4>{{ user.email }}</h4></p>
+
+        </div>
+
+{% endblock %}
