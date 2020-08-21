@@ -1,5 +1,5 @@
 {% extends "blog/base.html" %}
-
+{% load crispy_forms_tags %}
 {% block content %}
 
         <div class="blog-author clearfix">
@@ -8,6 +8,18 @@
 
               <p>Email: <h4>{{ user.email }}</h4></p>
 
+              <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <fieldset class="form-group">
+                                <legend class="border-bottom mb-4">Profile Information</legend>
+                                {{ u_form|crispy }}
+                                {{ p_form|crispy }}
+                            </fieldset>
+                            <div class="form-group">
+                                <button style="background-color:#94c045;" type="submit">Update Profile</button>
+                            </div>
+                        </form>
         </div>
+
 
 {% endblock %}
