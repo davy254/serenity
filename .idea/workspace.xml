@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b251718-8e36-4b9c-9169-2ddf30619ed8" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/serenity/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/serenity/blog/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serenity/blog/static/blog/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/serenity/blog/static/blog/assets/css/style.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
