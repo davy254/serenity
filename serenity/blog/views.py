@@ -5,18 +5,24 @@ from django.views.generic import (ListView,DetailView,
 
 
 # Create your views here.
+
+# Home view
 def home(request):
     return render(request,'blog/landing.html')
 
+# View for getting a users profile
 def get_user_profile(request,username):
     user = User.objects.get(username=username)
     return render(request,'users/profile.html',{'user':user })
 
 
+# class-based view for displaying post in full
 class PostDetailView(DetailView):
     model = Post
 
 
+# class-based view for displaying summary of various posts,
+# odering by latest and page pagination
 class PostListView(ListView):
     model = Post
     template_name = 'blog/home.html'
