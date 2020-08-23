@@ -5,6 +5,8 @@ from PIL import  Image
 
 
 # Create your models here.
+
+# creating Post model
 class Post(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
@@ -12,10 +14,11 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     blog_image = models.ImageField(default='default.png', upload_to='blog_pics')
 
-
+    # dunder string for returning the title of the post
     def __str__(self):
         return self.title
 
+    # save method for saving image after it has been rescaled
     def save(self,*args, **kwargs):
         super().save(*args, **kwargs)
 
