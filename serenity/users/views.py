@@ -25,10 +25,10 @@ def register(request):
 # view for the profile of users
 def profile(request):
     if request.method == 'POST':
-         u_form = UserUpdateForm(request.POST, instance=request.user)
+         u_form = UserUpdateForm(request.POST, instance=request.user) # form for updating user details
          p_form = ProfileUpdateForm(request.POST,
                                     request.FILES,
-                                    instance=request.user.profile)
+                                    instance=request.user.profile)  # form for updating user picture in profiles
          if u_form.is_valid() and p_form.is_valid():
              u_form.save()
              p_form.save()
