@@ -5,8 +5,9 @@ from  .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
 
 
-
 # Create your views here.
+
+# view for registering users
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
@@ -20,9 +21,8 @@ def register(request):
     return render(request,'users/register.html', {'form':form})
 
 
-
-
 @login_required
+# view for the profile of users
 def profile(request):
     if request.method == 'POST':
          u_form = UserUpdateForm(request.POST, instance=request.user)
