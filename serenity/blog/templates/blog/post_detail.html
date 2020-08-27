@@ -19,6 +19,12 @@
                   <li class="d-flex align-items-center"><i class="icofont-comment"></i> <a href="blog-single.html">12 Comments</a></li>
                 </ul>
               </div>
+              <div>
+                {% if object.author == user%}
+                    <a class="btn btn-secondary btn-sm mt-1 mb-2" href="{% url 'post-update' object.id %}">Update Post</a>
+                    <a class="btn btn-danger btn-sm mt-1 mb-2"  href="{% url 'post-delete' object.id %}" >Delete Post</a>
+                {% endif %}
+              </div>
 
               <div class="entry-content">
                 <p>

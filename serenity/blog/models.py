@@ -29,6 +29,6 @@ class Post(models.Model):
         img.thumbnail(output_size)
         img.save(self.blog_image.path)
 
-
     def get_absolute_url(self):
         return reverse('post-detail', kwargs={'pk': self.pk})
+
