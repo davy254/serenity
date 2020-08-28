@@ -11,6 +11,8 @@ from django.contrib.auth.mixins import (LoginRequiredMixin,
 def home(request):
     return render(request,'blog/landing.html')
 
+
+
 # View for getting a users profile
 def get_user_profile(request,username):
     user = User.objects.get(username=username)
@@ -45,7 +47,7 @@ class UserPostListView(ListView):
 
 class UserPostDetailView(DetailView):
     model = Post
-    template_name = 'blog/user_posts_detail.html'
+    template_name = 'blog/post_detail.html'
     context_object_name = 'posts'
 
 

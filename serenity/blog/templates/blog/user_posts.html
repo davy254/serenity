@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
         <div style="width:100%;">
-          <h1 class="mb-3"> Posts for {{ view.kwargs.username }} ({{ page_obj.paginator.count}})</h1>
+          <h1 class="mb-3"> Posts written by {{ view.kwargs.username }} ({{ page_obj.paginator.count}})</h1>
         </div>
 
         {% for post in posts %}
@@ -10,7 +10,7 @@
                 <article class="entry">
 
                   <div class="entry-img">
-                    <img src="{{ post.author.profile.blog_image.url}}" alt="" class="img-fluid" style="width:100%;height:197px;">
+                    <img src="{{ post.blog_image.url}}" alt="" class="img-fluid" style="width:100%;height:197px;">
                   </div>
 
                   <h2 class="entry-title">

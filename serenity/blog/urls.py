@@ -11,6 +11,7 @@ from .views import (PostDetailView,
 
 urlpatterns = [
     path('',views.home,name='landing'),
+
     path('user/profile/<username>/', views.get_user_profile,name='user-profile'),
     path('blog/' , PostListView.as_view() , name = 'blog-home'),
     path('posts/<int:pk>/', PostDetailView.as_view(), name='post-detail'),
