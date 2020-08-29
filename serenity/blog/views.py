@@ -1,10 +1,12 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404,redirect
 from .models import Post,User
 from django.views.generic import (ListView,DetailView,
                                   CreateView,UpdateView,DeleteView)
 
 from django.contrib.auth.mixins import (LoginRequiredMixin,
-                                        UserPassesTestMixin)
+                                      UserPassesTestMixin)
+
+from .forms import PostForm
 # Create your views here.
 
 # Home view
@@ -63,6 +65,8 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     fields = ['title', 'content', 'blog_image']
+   
+
 
     def test_func(self):
         post = self.get_object()
@@ -70,11 +74,14 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
             return True
         return False
 
+    def form_valid(self,form):
+        if self.request.method == 'POST':
+            Form = PostForm(self.request.POST, self.request.FILES, instance=self.request.user)
+            if Form.is_valid():
+                Form.save()
 
-
-    def form_valid(self, form):
-        form.instance.author = self.request.user
         return super().form_valid(form)
+
 
 
 
