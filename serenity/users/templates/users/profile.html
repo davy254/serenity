@@ -2,23 +2,31 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-        <div class="blog-author clearfix">
+        <div class="blog-author clearfix" style="margin-left:30%;">
+            <div>
+                              <legend class="border-bottom mb-4 float-left">Profile Information</legend>
+                          </div>
+            <div class="float-left">
               <img src="{{ user.profile.profile_pic.url }}" class="rounded-circle float-left" alt="">
-              <p>Userame: <h4>{{ user.username }}</h4></p>
+              <p >Userame: <b>{{ user.username }}</b></p>
 
-              <p>Email: <h4>{{ user.email }}</h4></p>
+              <p>Email: <b>{{ user.email }}</b></p>
 
               <form method="POST" enctype="multipart/form-data">
                             {% csrf_token %}
+
+
                             <fieldset class="form-group">
-                                <legend class="border-bottom mb-4">Profile Information</legend>
+
                                 {{ u_form|crispy }}
                                 {{ p_form|crispy }}
                             </fieldset>
-                            <div class="form-group">
-                                <button class="btn btn-info" style="background-color:#94c045;" type="submit">Update Profile</button>
-                            </div>
+
                         </form>
+            </div>
+            <div class=" float-left mt-2" style="width: 100%;" >
+                <button class="btn btn-info " style="background-color:#94c045;" type="submit">Update Profile</button>
+            </div>
         </div>
 
 
