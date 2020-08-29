@@ -16,7 +16,7 @@ def home(request):
 # View for getting a users profile
 def get_user_profile(request,username):
     user = User.objects.get(username=username)
-    return render(request,'users/profile.html',{'user':user })
+    return render(request,'blog/user_post_profile.html',{'user':user })
 
 
 # class-based view for displaying post in full

@@ -1,0 +1,19 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+        <div class="blog-author clearfix " style="margin-left:30%;width:480px;" >
+            <div>
+                <legend class="border-bottom mb-4 float-left">Profile Information</legend>
+            </div>
+            <div class="float-left mt-2" >
+              <img src="{{ user.profile.profile_pic.url }}" class="rounded-circle float-left" alt="">
+              <p >Userame: <b>{{ user.username }}</b></p>
+
+              <p>Email: <b>{{ user.email }}</b></p>
+            </div>
+
+        </div>
+
+
+{% endblock %}
